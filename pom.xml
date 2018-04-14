@@ -409,10 +409,9 @@
 					<artifactId>maven-release-plugin</artifactId>
 					<version>${maven-release-plugin.version}</version>
 					<configuration>
-						<mavenExecutorId>forked-path</mavenExecutorId>
-						<useReleaseProfile>false</useReleaseProfile>
-						<arguments>-Prelease</arguments>
 						<autoVersionSubmodules>true</autoVersionSubmodules>
+						<useReleaseProfile>false</useReleaseProfile>
+						<releaseProfiles>release</releaseProfiles>
 					</configuration>
 				</plugin>
 				<plugin>
