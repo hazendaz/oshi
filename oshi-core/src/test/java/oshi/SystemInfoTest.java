@@ -143,7 +143,7 @@ public class SystemInfoTest {
         StringBuilder output = new StringBuilder();
         for (int i = 0; i < oshi.size(); i++) {
             output.append(oshi.get(i));
-            if (oshi.get(i) != null && !oshi.get(i).endsWith("\n")) {
+            if (oshi.get(i) != null && !oshi.get(i).equals("\n")) {
                 output.append('\n');
             }
         }
