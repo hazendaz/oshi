@@ -145,7 +145,7 @@ public class SystemInfoTest { // NOSONAR squid:S5786
         StringBuilder output = new StringBuilder();
         for (String line : oshi) {
             output.append(line);
-            if (line != null && !line.endsWith("\n")) {
+            if (line != null && !line.equals("\n")) {
                 output.append('\n');
             }
         }
