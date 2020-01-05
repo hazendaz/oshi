@@ -142,6 +142,8 @@ public class SystemInfoTest { // NOSONAR squid:S5786
         logger.info("Checking Graphics Cards...");
         printGraphicsCards(hal.getGraphicsCards());
 
+        oshi.add("Finished Operating System and Hardware Info Dump");
+
         StringBuilder output = new StringBuilder();
         for (String line : oshi) {
             output.append(line);
