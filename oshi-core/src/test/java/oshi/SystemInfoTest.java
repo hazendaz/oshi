@@ -140,6 +140,8 @@ public class SystemInfoTest {
         logger.info("Checking Sound Cards...");
         printSoundCards(hal.getSoundCards());
 
+        oshi.add("Finished Operating System and Hardware Info Dump");
+
         StringBuilder output = new StringBuilder();
         for (int i = 0; i < oshi.size(); i++) {
             output.append(oshi.get(i));
