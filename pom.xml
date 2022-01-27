@@ -50,8 +50,8 @@
     </modules>
 
     <scm>
-        <connection>scm:git:git@github.com:oshi/oshi.git</connection>
-        <developerConnection>scm:git:git@github.com:oshi/oshi.git</developerConnection>
+        <connection>scm:git:ssh://git@github.com/oshi/oshi.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com:oshi/oshi.git</developerConnection>
         <tag>HEAD</tag>
         <url>https://github.com/oshi/oshi.git</url>
     </scm>
@@ -75,9 +75,9 @@
             <url>https://oss.sonatype.org/content/repositories/snapshots</url>
         </snapshotRepository>
         <site>
-            <id>gh-pages</id>
+            <id>gh-pages-scm</id>
             <name>OSHI GitHub Pages</name>
-            <url>scp://oshi.github.io/oshi/</url>
+            <url>scm:git:ssh://git@github.com/oshi/oshi.git</url>
         </site>
     </distributionManagement>
 
@@ -112,7 +112,9 @@
         <maven-resources-plugin.version>3.2.0</maven-resources-plugin.version>
         <maven-site-plugin.version>3.10.0</maven-site-plugin.version>
         <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
-        <wagon-ssh.version>3.5.1</wagon-ssh.version>
+        <!-- maven-site-plugin dependencies -->
+        <scm.version>2.0.0-M1</scm.version>
+        <wagon.version>3.5.1</wagon.version>
         <maven-fluido-skin.version>1.10.0</maven-fluido-skin.version>
         <!-- build plugins -->
         <git-commit-id-plugin.version>4.9.10</git-commit-id-plugin.version>
@@ -221,8 +223,23 @@
                     <dependencies>
                         <dependency>
                             <groupId>org.apache.maven.wagon</groupId>
-                            <artifactId>wagon-ssh</artifactId>
-                            <version>${wagon-ssh.version}</version>
+                            <artifactId>wagon-scm</artifactId>
+                            <version>${wagon.version}</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>org.apache.maven.scm</groupId>
+                            <artifactId>maven-scm-api</artifactId>
+                            <version>${scm.version}</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>org.apache.maven.scm</groupId>
+                            <artifactId>maven-scm-provider-gitexe</artifactId>
+                            <version>${scm.version}</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>org.apache.maven.scm</groupId>
+                            <artifactId>maven-scm-manager-plexus</artifactId>
+                            <version>${scm.version}</version>
                         </dependency>
                         <dependency>
                             <groupId>org.apache.maven.skins</groupId>
@@ -230,6 +247,14 @@
                             <version>${maven-fluido-skin.version}</version>
                         </dependency>
                     </dependencies>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-scm-publish-plugin</artifactId>
+                    <version>3.1.0</version>
+                    <configuration>
+                        <scmBranch>gh-pages</scmBranch>
+                    </configuration>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>

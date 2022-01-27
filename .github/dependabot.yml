@@ -8,15 +8,9 @@ updates:
     directory: "/"
     schedule:
       interval: daily
-    ignore:
-    - dependency-name: net.trajano.wagon:wagon-git
-      versions:
-      - "< 2.0.5"
-      - ">= 2.0.4.a"
-      
+
   # Maintain dependencies for GitHub Actions
   - package-ecosystem: github-actions
     directory: "/"
     schedule:
       interval: daily
-      
