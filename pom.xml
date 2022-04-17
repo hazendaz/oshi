@@ -234,6 +234,8 @@
                     <version>${maven-scm-publish-plugin.version}</version>
                     <configuration>
                         <checkoutDirectory>${user.home}/maven-sites/oshi</checkoutDirectory>
+                        <!-- no need for site:stage, use target/site or target/checkout/target/site on release -->
+                        <content>${project.reporting.outputDirectory}</content>
                         <scmBranch>gh-pages</scmBranch>
                         <skipDeletedFiles>true</skipDeletedFiles>
                         <tryUpdate>true</tryUpdate>
@@ -1063,10 +1065,6 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-scm-publish-plugin</artifactId>
-                        <configuration>
-                            <!-- no need for site:stage, use target/site or target/checkout/target/site on release -->
-                            <content>${project.reporting.outputDirectory}</content>
-                        </configuration>
                         <executions>
                             <execution>
                                 <id>scm-publish</id>
