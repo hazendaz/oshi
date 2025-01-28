@@ -10,7 +10,7 @@ It does not require the installation of any additional native libraries and aims
 cross-platform implementation to retrieve system information, such as OS version, processes,
 memory and CPU usage, disks and partitions, devices, sensors, etc.
 
-- [Supported Platforms](#supported-platforms)
+- [Supported Platforms](#Supported_Platforms)
 - [Downloads and Dependency Management](#downloads-and-dependency-management)
 - [Documentation](#documentation)
 - [Usage](#usage)
